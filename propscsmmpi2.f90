@@ -23,9 +23,9 @@
 !
 !
 !
-  do 200 i=2, nim1
+  do 200 k=2, nkm1
     do 200 j=2, njm1
-      do 200 k=2, nkm1
+      do 200 i=2, nim1
         dudx = (u(i+1,j,k)-u(i,j,k))*mviu(i,j,k) / sew(i)
 
         dudy =                                                & 
@@ -111,7 +111,7 @@
     do 100 k = 2, nkm1
       do 100 j = 2, njm1
         vistl(i,j,k) = nut(i,j,k) * densit
-        vis(i,j,k)=vistl(i,j,k)+viscos
+        vis(i,j,k)   = vistl(i,j,k)+viscos
 100 continue
 !
   call sendrcvedgempi4(vis,ni,nj,nk)
